@@ -1,6 +1,6 @@
 backend:
   name: git-gateway
-  branch: main
+  repo: jessesgithubaccount/unqualified
 
 media_folder: "images/uploads"
 public_folder: "/images/uploads"
