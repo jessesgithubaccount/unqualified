@@ -9,11 +9,13 @@
 <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
-
 <header>
   <nav class="wrap">
     <a class="logo" href="/">UNQUALIFIED<span class="dot">.</span></a>
-    <div class="nav-links">
+    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-links">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="nav-links" id="nav-links">
       <a href="/#posts">Posts</a>
       <a href="/#about">About</a>
       <a href="https://wa.me/254718300059" target="_blank" rel="noopener">WhatsApp</a>
@@ -21,11 +23,9 @@
     <a class="nav-cta" href="https://wa.me/254718300059" target="_blank" rel="noopener">Join WhatsApp</a>
   </nav>
 </header>
-
 <main id="top">
 {{ content | safe }}
 </main>
-
 <footer>
   <div class="wrap">
     <a class="logo" href="/">UNQUALIFIED<span class="dot" style="color:var(--navy);">.</span></a>
@@ -37,7 +37,6 @@
     <div class="footer-note">© 2026 UNQUALIFIED</div>
   </div>
 </footer>
-
 <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 <script>
   if (window.netlifyIdentity) {
@@ -47,6 +46,22 @@
           document.location.href = "/admin/";
         });
       }
+    });
+  }
+</script>
+<script>
+  const navToggle = document.querySelector('.nav-toggle');
+  const navLinks = document.querySelector('.nav-links');
+  if (navToggle && navLinks) {
+    navToggle.addEventListener('click', () => {
+      const isOpen = navLinks.classList.toggle('open');
+      navToggle.setAttribute('aria-expanded', isOpen);
+    });
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('open');
+        navToggle.setAttribute('aria-expanded', 'false');
+      });
     });
   }
 </script>
