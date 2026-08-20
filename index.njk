@@ -1,0 +1,119 @@
+---
+layout: base.njk
+title: Home
+---
+<section class="hero">
+  <div class="hero-media">
+    <img src="https://images.pexels.com/photos/14599070/pexels-photo-14599070.jpeg?auto=compress&cs=tinysrgb&w=1600" alt="Man lifting weights in a gym">
+  </div>
+  <div class="hero-copy wrap">
+    <div class="hero-tag"><span class="dot"></span><span class="mono">STARTED THIS BLOG: 2026</span></div>
+    <h1>No certification.<br>Just <em>obsessed</em>.</h1>
+    <p>I'm not a trainer or a coach — just a guy who fell hard for fitness and started writing down what I'm learning. Wins, plateaus, bad form corrections, all of it.</p>
+    <div class="hero-actions">
+      <a class="btn-primary" href="#posts">Read the Blog</a>
+      <a class="btn-outline" href="#about">Why "Unqualified"?</a>
+    </div>
+  </div>
+</section>
+
+{% set allPosts = collections.posts | reverse %}
+{% set latest = allPosts | first %}
+
+<section class="featured-section">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Latest Post</h2>
+      <p class="section-sub">The most recent thing I've figured out — or gotten wrong.</p>
+    </div>
+    {% if latest %}
+    <a href="{{ latest.url }}" style="display:block;">
+      <article class="featured-card">
+        <div class="featured-media">
+          <img src="{{ latest.data.image }}" alt="{{ latest.data.title }}">
+        </div>
+        <div class="featured-body">
+          <span class="tag-pill tag-{{ latest.data.category | lower }}">{{ latest.data.category }}</span>
+          <h3>{{ latest.data.title }}</h3>
+          <p>{{ latest.data.excerpt }}</p>
+          <div class="post-meta">
+            <span>{{ latest.data.date | readableDate }}</span>
+            <span>&middot;</span>
+            <span>{{ latest.data.readtime }}</span>
+          </div>
+        </div>
+      </article>
+    </a>
+    {% endif %}
+  </div>
+</section>
+
+<section class="grid-section" id="posts">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>All Posts</h2>
+      <p class="section-sub">Everything I've written so far — good weeks and rough ones.</p>
+    </div>
+
+    <div class="post-grid">
+    {% for post in allPosts %}
+      {% if not loop.first %}
+      <article class="post-card">
+        <a href="{{ post.url }}">
+          <div class="post-thumb">
+            <img src="{{ post.data.image }}" alt="{{ post.data.title }}">
+          </div>
+          <span class="tag-pill tag-{{ post.data.category | lower }}">{{ post.data.category }}</span>
+          <h3>{{ post.data.title }}</h3>
+          <p>{{ post.data.excerpt }}</p>
+          <div class="post-meta">
+            <span>{{ post.data.date | readableDate }}</span>
+            <span>&middot;</span>
+            <span>{{ post.data.readtime }}</span>
+          </div>
+        </a>
+      </article>
+      {% endif %}
+    {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <div class="wrap">
+    <div class="about-photo">
+      <img src="https://images.pexels.com/photos/4164759/pexels-photo-4164759.jpeg?auto=compress&cs=tinysrgb&w=700" alt="Person working out at the gym">
+    </div>
+    <div>
+      <div class="about-tag">Why this exists</div>
+      <h2>I'm not qualified to coach you. I just love this too much to stay quiet about it.</h2>
+      <div class="about-list">
+        <div class="about-item">
+          <span class="num mono">01</span>
+          <p>No certifications, no credentials — I'm learning in public, not teaching from a stage.</p>
+        </div>
+        <div class="about-item">
+          <span class="num mono">02</span>
+          <p>The fails get posted too. Plateaus, skipped weeks, bad form — all of it, not just the wins.</p>
+        </div>
+        <div class="about-item">
+          <span class="num mono">03</span>
+          <p>What started as a gym log on my phone turned into this. It's still just that, dressed up a little.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="subscribe" id="subscribe">
+  <div class="wrap">
+    <h2>Get the next post when it goes up.</h2>
+    <p>One email per post. No courses to sell you, no drip sequence — just what I'm learning.</p>
+    <form class="sub-form" onsubmit="event.preventDefault();">
+      <label for="email" style="position:absolute; left:-9999px;">Email address</label>
+      <input id="email" type="email" placeholder="you@email.com" required>
+      <button type="submit">Subscribe</button>
+    </form>
+    <div class="sub-note">NO SPAM. UNSUBSCRIBE ANYTIME.</div>
+  </div>
+</section>

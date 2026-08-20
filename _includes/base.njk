@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{% if title %}{{ title }} — Unqualified{% else %}Unqualified — A Fitness Blog{% endif %}</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Work+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<header>
+  <nav class="wrap">
+    <a class="logo" href="/">UNQUALIFIED<span class="dot">.</span></a>
+    <div class="nav-links">
+      <a href="/#posts">Posts</a>
+      <a href="/#about">About</a>
+      <a href="/#subscribe">Subscribe</a>
+    </div>
+    <a class="nav-cta" href="/#subscribe">Follow Along</a>
+  </nav>
+</header>
+
+<main id="top">
+{{ content | safe }}
+</main>
+
+<footer>
+  <div class="wrap">
+    <a class="logo" href="/">UNQUALIFIED<span class="dot" style="color:var(--navy);">.</span></a>
+    <div class="footer-links">
+      <a href="/#posts">Posts</a>
+      <a href="/#about">About</a>
+      <a href="/#subscribe">Subscribe</a>
+    </div>
+    <div class="footer-note">© 2026 UNQUALIFIED</div>
+  </div>
+</footer>
+
+<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+<script>
+  if (window.netlifyIdentity) {
+    window.netlifyIdentity.on("init", (user) => {
+      if (!user) {
+        window.netlifyIdentity.on("login", () => {
+          document.location.href = "/admin/";
+        });
+      }
+    });
+  }
+</script>
+</body>
+</html>

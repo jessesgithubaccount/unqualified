@@ -1,0 +1,29 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "images/uploads"
+public_folder: "/images/uploads"
+
+publish_mode: simple
+
+collections:
+  - name: "posts"
+    label: "Posts"
+    label_singular: "Post"
+    folder: "content/posts"
+    create: true
+    delete: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    identifier_field: title
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Publish Date", name: "date", widget: "datetime" }
+      - label: "Category"
+        name: "category"
+        widget: "select"
+        options: ["Training", "Nutrition", "Living"]
+      - { label: "Cover Image", name: "image", widget: "image" }
+      - { label: "Excerpt", name: "excerpt", widget: "text", hint: "One or two sentences shown on the homepage card." }
+      - { label: "Read Time", name: "readtime", widget: "string", default: "5 min read" }
+      - { label: "Body", name: "body", widget: "markdown" }
