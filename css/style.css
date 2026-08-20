@@ -194,6 +194,7 @@ footer .wrap{ display:flex; justify-content:space-between; align-items:center; f
 
 @media (max-width: 680px){
   .nav-toggle{ display:flex; }
+  .nav-cta{ display:none; }
   .nav-links{
     display:flex; flex-direction:column; gap:0;
     position: fixed; top:74px; right:0;
@@ -207,4 +208,6 @@ footer .wrap{ display:flex; justify-content:space-between; align-items:center; f
   .nav-links a{ padding: 14px 0; border-bottom:1px solid var(--line); font-size:14px; }
   .section-head{ flex-direction:column; align-items:flex-start; gap:10px; }
   .section-head .section-sub{ text-align:left; }
+  .hero-copy{ padding-left: 24px; padding-right: 24px; }
+  .hero-actions{ flex-wrap: wrap; }
 }
