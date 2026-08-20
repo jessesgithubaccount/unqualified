@@ -210,10 +210,16 @@ footer .wrap{ display:flex; justify-content:space-between; align-items:center; f
     border-left:1px solid var(--line);
     padding: 24px !important;
     transform: translateX(100%) !important;
-    transition: transform .3s ease !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+    transition: transform .3s ease, visibility .3s !important;
     z-index: 999 !important;
   }
-  .nav-links.open{ transform: translateX(0) !important; }
+  .nav-links.open{
+    transform: translateX(0) !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+  }
   .nav-links a{ padding: 14px 0; border-bottom:1px solid var(--line); font-size:14px; }
   .section-head{ flex-direction:column; align-items:flex-start; gap:10px; }
   .section-head .section-sub{ text-align:left; }
