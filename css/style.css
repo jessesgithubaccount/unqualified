@@ -173,7 +173,7 @@ nav.wrap{ display:flex; align-items:center; justify-content:space-between; heigh
 .sub-note{ margin-top:12px; font-size:12px; color:var(--ink-soft); font-family:'IBM Plex Mono',monospace; }
 
 .post-page{ padding: 60px 0 100px; }
-.post-page .post-hero-img{ width:100%; max-height: 480px; object-fit:cover; border-radius:4px; margin: 26px 0 40px; filter: grayscale(100%); }
+.post-page .post-hero-img{ width:100%; max-height: 480px; object-fit:cover; border-radius:4px; margin: 26px 0 40px; }
 .post-page h1{ font-size: clamp(28px,4.2vw,46px); text-transform:none; letter-spacing:normal; line-height:1.1; margin: 16px 0 18px; }
 .post-body{ max-width: 680px; font-size:16px; line-height:1.8; color: var(--ink); }
 .post-body p{ margin-bottom: 20px; }
